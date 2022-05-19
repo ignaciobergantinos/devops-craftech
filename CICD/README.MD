@@ -12,7 +12,11 @@ Se decidió usar github actions, y requiere que creemos una carpeta llamada **.g
 
 Para que comience el pipeline:
 
-```git push```
+```
+git add
+git commit -m "msj"
+git push
+```
 
 Una vez subida a Docker-hub:
 
