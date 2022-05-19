@@ -1,7 +1,5 @@
-# Version del docker compose sintax
   version: '3.0'
 
-# Servicios que voy a ejecutar 
   services:
 
     frontend:
@@ -10,7 +8,6 @@
       build: ./frontend
       volumes:
         - ./frontend:/app/frontend
-        # One-way volume to use node_modules from inside image
         - /app/frontend/node_modules
       ports:
         - "3000:3000"
