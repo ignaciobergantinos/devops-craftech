@@ -1,0 +1,10 @@
+  version: '3.0'
+  services:
+    nginx:
+      restart: always
+      container_name: nginx
+      image: nachobergan/devops-craftech.io:latest
+      ports:
+      - "8080:80"
+
+   
