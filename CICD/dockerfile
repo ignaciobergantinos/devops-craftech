@@ -1,6 +1,8 @@
 # Uso ultima version de nginx en conjunto de alpine
 FROM nginx:1.19-alpine
 
+# Copio la default web de nginx
 ADD index.html /usr/share/nginx/html
 
+# Uso puerto 8080 
 EXPOSE 8080
