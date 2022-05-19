@@ -7,7 +7,7 @@ Se deben entregar los Dockerfiles pertinentes para elaborar el despliegue y just
 Subir todo lo elaborado a un repositorio (github, gitlab, bitbucket, etc). En el repositorio se debe incluir el código de la aplicación  y un archivo README.md con instrucciones detalladas para compilar y desplegar la aplicación, tanto en una PC local como en la nube (AWS o GCP).
 
 
-## Solucion
+## Solución
 
 Para ejecutar el archivo docker-compose.yml, utilizaremos el comando: 
 
