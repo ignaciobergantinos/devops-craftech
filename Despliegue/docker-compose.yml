@@ -1,0 +1,46 @@
+# Version del docker compose sintax
+  version: '3.0'
+
+# Servicios que voy a ejecutar 
+  services:
+
+    frontend:
+      container_name: ngnix
+      restart: always
+      build: ./frontend
+      volumes:
+        - ./frontend:/app/frontend
+        # One-way volume to use node_modules from inside image
+        - /app/frontend/node_modules
+      ports:
+        - "3000:3000"
+      environment:
+        - NODE_ENV=development
+      depends_on:
+        - backend
+        
+  
+
+    db:
+      container_name: postgres
+      image: postgres:13.1-alpine
+      restart: always
+      ports:
+        - 5432:5432
+      env_file:
+        - ./backend/.envs/.postgres
+   
+
+    backend:
+      container_name: django
+      restart: always
+      build: ./backend
+      volumes:
+        - ./backend:/app/backend
+      env_file: 
+      - ./backend/.envs/.postgres
+      ports:
+        - "8000:8000"
+      
+      depends_on:
+        - db
