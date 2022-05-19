@@ -1,0 +1,33 @@
+FROM python:3.7.4
+
+LABEL maintainer="ignacio bergantinos <ignaciobergantinos@gmail.com>"
+
+# Seteo las variables de entorno
+ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBYTECODE 1
+
+# Creo mi directorio de trabajo
+RUN mkdir -p /usr/src/app/backend
+WORKDIR /usr/src/app/backend
+
+# Copio requirements.txt en mi working directory
+# Para luego instalar dependencias 
+#(librerias psycopg2-binary y graphviz fueron agregadas porque sin ellas lanzaba error)
+COPY requirements.txt /usr/src/app/backend
+
+RUN apt update
+RUN pip install --no-cache --upgrade pip
+RUN apt-get install -y graphviz-dev
+RUN pip install psycopg2-binary
+RUN pip3 install --no-cache -r requirements.txt
+
+
+# Copias la app en el working directory
+COPY . /usr/src/app/backend
+
+# Uso puerto 8000 
+EXPOSE 8000
+
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+
+
