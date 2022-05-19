@@ -7,9 +7,6 @@ LABEL maintainer="ignacio bergantinos <ignaciobergantinos@gmail.com>"
 RUN mkdir -p /usr/src/app/frontend
 WORKDIR /usr/src/app/frontend
 
-# PREG ENV PATH? REVISAR ESTO...
-#ENV PATH /app/node_modules/.bin:$PATH
-
 # Copio Package.json y package-lock.json en mi working directory
 # Para luego instalar dependencias
 COPY package*.json /usr/src/app/frontend/
@@ -22,9 +19,3 @@ COPY . /usr/src/app/frontend
 # Puerto usado para Express apps
 EXPOSE 3000
 CMD ["npm", "start"]
-
-
-# Para correr es docker build LOCATION DOCKER FILE
-# docker build . para la misma carpeta -t es para imagenes
-
-#docker build -t myaimage1:1.0 .
