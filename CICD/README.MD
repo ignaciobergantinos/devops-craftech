@@ -10,6 +10,13 @@ Lo que se busca hacer en esta parte del ejercicio, es al pushear cambios a nuest
 
 Se decidió usar github actions, y requiere que creemos una carpeta llamada **.github/workflows**, y dentro de esta un **archivo .yml**, que tiene las instrucciones necesarias para hacer lo mencionado arriba. Colocamos la contraseña y el usuario de dockerhub como un **secreto en github**, para que desde el .yml pueda loguearse y pushear la latest imagen construida a partir del docker compose.
 
+Podremos ver la página por defecto de nginx
+
+Importante: En el caso de utilizar **AWS**, hay que crear una inbound rule para el security group que use la instancia que usemos para habilitar el puerto que estemos usando para la aplicación, en este caso el 8080
+
+![Diagrama AWS](aws-securitygroup8080.png)
+
+
 Para que comience el pipeline:
 
 ```
